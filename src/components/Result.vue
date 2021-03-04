@@ -36,9 +36,7 @@
       <hr>
       <h3 class="text-3xl mb-6">Why does this even exist?</h3>
       <p class="">
-        Because <a href="https://www.linssen.me/">Wil</a>,
-        <a href="http://gregorywood.co.uk/">Greg</a>, and Glen were in a pub
-        once and they thought you should be able to compare films to Predator.
+        Because Dean and Matt thought you should be able to compare films to The Goonies.
         It is after all the ultimate benchmark.
       </p>
 
@@ -89,16 +87,16 @@ export default {
       return this.filmsByScore[0];
     },
     versus() {
-      return this.films.find(film => film.id !== 106);
+      return this.films.find(film => film.id !== 9340);
     },
     tweetUrl() {
       if (!this.winner || !this.versus) {
         return '';
       }
-      const thisUrl = `http://www.betterthanpredator.com/#/versus/${this.id}/${this.slug}/`;
-      const conjoin = this.winner.id === 106 ? 'n’t as good as' : 'better than';
+      const thisUrl = `http://www.betterthangoonies.com/#/versus/${this.id}/${this.slug}/`;
+      const conjoin = this.winner.id === 9340 ? 'n’t as good as' : 'better than';
       const shareString = `I just found out that ${this.versus.title} `
-        + `(${this.versus.releaseDate.getFullYear()}) is${conjoin} Predator.`;
+        + `(${this.versus.releaseDate.getFullYear()}) is${conjoin} The Goonies.`;
       return 'https://twitter.com/share/'
             + `?url=${encodeURIComponent(thisUrl)}`
             + '&via=linssen'
@@ -107,7 +105,7 @@ export default {
   },
   created() {
     this.clearFilms();
-    this.find({ id: 106 });
+    this.find({ id: 9340 });
     this.find({ id: this.id });
   },
   methods: {
